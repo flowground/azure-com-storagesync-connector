@@ -1,0 +1,87 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+$"
+        },
+        "storageSyncServiceName": {
+            "required": true,
+            "type": "string"
+        },
+        "syncGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "cloudEndpointName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Post Restore Request",
+            "properties": {
+                "azureFileShareUri": {
+                    "description": "Post Restore Azure file share uri.",
+                    "type": "string"
+                },
+                "failedFileList": {
+                    "description": "Post Restore Azure failed file list.",
+                    "type": "string"
+                },
+                "partition": {
+                    "description": "Post Restore partition.",
+                    "type": "string"
+                },
+                "replicaGroup": {
+                    "description": "Post Restore replica group.",
+                    "type": "string"
+                },
+                "requestId": {
+                    "description": "Post Restore request id.",
+                    "type": "string"
+                },
+                "restoreFileSpec": {
+                    "description": "Post Restore restore file spec array.",
+                    "items": {
+                        "description": "Post Restore restore file spec items array.",
+                        "properties": {
+                            "isdir": {
+                                "description": "Restore file spec isdir",
+                                "readOnly": true,
+                                "type": "boolean"
+                            },
+                            "path": {
+                                "description": "Restore file spec path",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "sourceAzureFileShareUri": {
+                    "description": "Post Restore Azure source azure file share uri.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Post Restore Azure status.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

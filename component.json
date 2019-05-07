@@ -1,0 +1,645 @@
+{
+    "title": "Microsoft Storage Sync",
+    "description": "Microsoft Storage Sync Service API",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/storagesync/2018-10-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available Storage Sync Rest API operations.",
+            "description": "Lists all of the available Storage Sync Rest API operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_CheckNameAvailability": {
+            "main": "./lib/actions/StorageSyncServices_CheckNameAvailability.js",
+            "title": "Check the give namespace name availability.",
+            "description": "Check the give namespace name availability.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_CheckNameAvailability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_ListBySubscription": {
+            "main": "./lib/actions/StorageSyncServices_ListBySubscription.js",
+            "title": "Get a StorageSyncService list by subscription.",
+            "description": "Get a StorageSyncService list by subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_ListBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_ListByResourceGroup": {
+            "main": "./lib/actions/StorageSyncServices_ListByResourceGroup.js",
+            "title": "Get a StorageSyncService list by Resource group name.",
+            "description": "Get a StorageSyncService list by Resource group name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_Delete": {
+            "main": "./lib/actions/StorageSyncServices_Delete.js",
+            "title": "Delete a given StorageSyncService.",
+            "description": "Delete a given StorageSyncService.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_Get": {
+            "main": "./lib/actions/StorageSyncServices_Get.js",
+            "title": "Get a given StorageSyncService.",
+            "description": "Get a given StorageSyncService.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_Update": {
+            "main": "./lib/actions/StorageSyncServices_Update.js",
+            "title": "Patch a given StorageSyncService.",
+            "description": "Patch a given StorageSyncService.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StorageSyncServices_Create": {
+            "main": "./lib/actions/StorageSyncServices_Create.js",
+            "title": "Create a new StorageSyncService.",
+            "description": "Create a new StorageSyncService.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StorageSyncServices_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegisteredServers_ListByStorageSyncService": {
+            "main": "./lib/actions/RegisteredServers_ListByStorageSyncService.js",
+            "title": "Get a given registered server list.",
+            "description": "Get a given registered server list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegisteredServers_ListByStorageSyncService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegisteredServers_Delete": {
+            "main": "./lib/actions/RegisteredServers_Delete.js",
+            "title": "Delete the given registered server.",
+            "description": "Delete the given registered server.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegisteredServers_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegisteredServers_Get": {
+            "main": "./lib/actions/RegisteredServers_Get.js",
+            "title": "Get a given registered server.",
+            "description": "Get a given registered server.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegisteredServers_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegisteredServers_Create": {
+            "main": "./lib/actions/RegisteredServers_Create.js",
+            "title": "Add a new registered server.",
+            "description": "Add a new registered server.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegisteredServers_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegisteredServers_triggerRollover": {
+            "main": "./lib/actions/RegisteredServers_triggerRollover.js",
+            "title": "Triggers Server certificate rollover.",
+            "description": "Triggers Server certificate rollover.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegisteredServers_triggerRollover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SyncGroups_ListByStorageSyncService": {
+            "main": "./lib/actions/SyncGroups_ListByStorageSyncService.js",
+            "title": "Get a SyncGroup List.",
+            "description": "Get a SyncGroup List.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SyncGroups_ListByStorageSyncService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SyncGroups_Delete": {
+            "main": "./lib/actions/SyncGroups_Delete.js",
+            "title": "Delete a given SyncGroup.",
+            "description": "Delete a given SyncGroup.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SyncGroups_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SyncGroups_Get": {
+            "main": "./lib/actions/SyncGroups_Get.js",
+            "title": "Get a given SyncGroup.",
+            "description": "Get a given SyncGroup.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SyncGroups_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SyncGroups_Create": {
+            "main": "./lib/actions/SyncGroups_Create.js",
+            "title": "Create a new SyncGroup.",
+            "description": "Create a new SyncGroup.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SyncGroups_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_ListBySyncGroup": {
+            "main": "./lib/actions/CloudEndpoints_ListBySyncGroup.js",
+            "title": "Get a CloudEndpoint List.",
+            "description": "Get a CloudEndpoint List.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_ListBySyncGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_Delete": {
+            "main": "./lib/actions/CloudEndpoints_Delete.js",
+            "title": "Delete a given CloudEndpoint.",
+            "description": "Delete a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_Get": {
+            "main": "./lib/actions/CloudEndpoints_Get.js",
+            "title": "Get a given CloudEndpoint.",
+            "description": "Get a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_Create": {
+            "main": "./lib/actions/CloudEndpoints_Create.js",
+            "title": "Create a new CloudEndpoint.",
+            "description": "Create a new CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_PostBackup": {
+            "main": "./lib/actions/CloudEndpoints_PostBackup.js",
+            "title": "Post Backup a given CloudEndpoint.",
+            "description": "Post Backup a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_PostBackup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_PostRestore": {
+            "main": "./lib/actions/CloudEndpoints_PostRestore.js",
+            "title": "Post Restore a given CloudEndpoint.",
+            "description": "Post Restore a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_PostRestore.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_PreBackup": {
+            "main": "./lib/actions/CloudEndpoints_PreBackup.js",
+            "title": "Pre Backup a given CloudEndpoint.",
+            "description": "Pre Backup a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_PreBackup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_PreRestore": {
+            "main": "./lib/actions/CloudEndpoints_PreRestore.js",
+            "title": "Pre Restore a given CloudEndpoint.",
+            "description": "Pre Restore a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_PreRestore.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CloudEndpoints_restoreheartbeat": {
+            "main": "./lib/actions/CloudEndpoints_restoreheartbeat.js",
+            "title": "Restore Heartbeat a given CloudEndpoint.",
+            "description": "Restore Heartbeat a given CloudEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CloudEndpoints_restoreheartbeat.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServerEndpoints_ListBySyncGroup": {
+            "main": "./lib/actions/ServerEndpoints_ListBySyncGroup.js",
+            "title": "Get a ServerEndpoint list.",
+            "description": "Get a ServerEndpoint list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServerEndpoints_ListBySyncGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServerEndpoints_Delete": {
+            "main": "./lib/actions/ServerEndpoints_Delete.js",
+            "title": "Delete a given ServerEndpoint.",
+            "description": "Delete a given ServerEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServerEndpoints_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServerEndpoints_Get": {
+            "main": "./lib/actions/ServerEndpoints_Get.js",
+            "title": "Get a ServerEndpoint.",
+            "description": "Get a ServerEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServerEndpoints_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServerEndpoints_Update": {
+            "main": "./lib/actions/ServerEndpoints_Update.js",
+            "title": "Patch a given ServerEndpoint.",
+            "description": "Patch a given ServerEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServerEndpoints_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServerEndpoints_Create": {
+            "main": "./lib/actions/ServerEndpoints_Create.js",
+            "title": "Create a new ServerEndpoint.",
+            "description": "Create a new ServerEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServerEndpoints_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ServerEndpoints_recallAction": {
+            "main": "./lib/actions/ServerEndpoints_recallAction.js",
+            "title": "Recall a server endpoint.",
+            "description": "Recall a server endpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ServerEndpoints_recallAction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workflows_ListByStorageSyncService": {
+            "main": "./lib/actions/Workflows_ListByStorageSyncService.js",
+            "title": "Get a Workflow List",
+            "description": "Get a Workflow List",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workflows_ListByStorageSyncService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workflows_Get": {
+            "main": "./lib/actions/Workflows_Get.js",
+            "title": "Get Workflows resource",
+            "description": "Get Workflows resource",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workflows_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Workflows_Abort": {
+            "main": "./lib/actions/Workflows_Abort.js",
+            "title": "Abort the given workflow.",
+            "description": "Abort the given workflow.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Workflows_Abort.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

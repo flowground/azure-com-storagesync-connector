@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+$"
+        },
+        "storageSyncServiceName": {
+            "required": true,
+            "type": "string"
+        },
+        "syncGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "cloudEndpointName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Backup request",
+            "properties": {
+                "azureFileShare": {
+                    "description": "Azure File Share.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

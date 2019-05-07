@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+$"
+        },
+        "storageSyncServiceName": {
+            "required": true,
+            "type": "string"
+        },
+        "syncGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "cloudEndpointName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Pre Restore request object.",
+            "properties": {
+                "azureFileShareUri": {
+                    "description": "Pre Restore Azure file share uri.",
+                    "type": "string"
+                },
+                "backupMetadataPropertyBag": {
+                    "description": "Pre Restore backup metadata property bag.",
+                    "type": "string"
+                },
+                "partition": {
+                    "description": "Pre Restore partition.",
+                    "type": "string"
+                },
+                "pauseWaitForSyncDrainTimePeriodInSeconds": {
+                    "description": "Pre Restore pause wait for sync drain time period in seconds.",
+                    "type": "integer"
+                },
+                "replicaGroup": {
+                    "description": "Pre Restore replica group.",
+                    "type": "string"
+                },
+                "requestId": {
+                    "description": "Pre Restore request id.",
+                    "type": "string"
+                },
+                "restoreFileSpec": {
+                    "description": "Pre Restore restore file spec array.",
+                    "items": {
+                        "description": "Pre Restore restore file spec items array.",
+                        "properties": {
+                            "isdir": {
+                                "description": "Restore file spec isdir",
+                                "readOnly": true,
+                                "type": "boolean"
+                            },
+                            "path": {
+                                "description": "Restore file spec path",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "sourceAzureFileShareUri": {
+                    "description": "Pre Restore Azure source azure file share uri.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Pre Restore Azure status.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

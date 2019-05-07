@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+$"
+        },
+        "storageSyncServiceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters for updating an Storage sync service.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the storage sync service.",
+                    "x-ms-client-flatten": true,
+                    "properties": {},
+                    "type": "object"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The user-specified tags associated with the storage sync service.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

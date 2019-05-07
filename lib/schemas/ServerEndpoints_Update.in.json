@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+$"
+        },
+        "storageSyncServiceName": {
+            "required": true,
+            "type": "string"
+        },
+        "syncGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serverEndpointName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters for updating an Server Endpoint.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the server endpoint.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "cloudTiering": {
+                            "description": "Cloud Tiering.",
+                            "enum": [
+                                "on",
+                                "off"
+                            ],
+                            "type": "string"
+                        },
+                        "offlineDataTransfer": {
+                            "description": "Offline data transfer",
+                            "enum": [
+                                "on",
+                                "off"
+                            ],
+                            "type": "string"
+                        },
+                        "offlineDataTransferShareName": {
+                            "description": "Offline data transfer share name",
+                            "type": "string"
+                        },
+                        "tierFilesOlderThanDays": {
+                            "description": "Tier files older than days.",
+                            "maximum": 2147483647,
+                            "minimum": 0,
+                            "type": "integer"
+                        },
+                        "volumeFreeSpacePercent": {
+                            "description": "Level of free space to be maintained by Cloud Tiering if it is enabled.",
+                            "maximum": 100,
+                            "minimum": 0,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}
